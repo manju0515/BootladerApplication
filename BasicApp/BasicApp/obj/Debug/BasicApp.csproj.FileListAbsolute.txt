@@ -1,0 +1,15 @@
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.AssemblyReference.cache
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.SuggestedBindingRedirects.cache
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\App.g.cs
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp_MarkupCompile.cache
+D:\TaalTec\BasicApp\BasicApp\bin\Debug\BasicApp.exe.config
+D:\TaalTec\BasicApp\BasicApp\bin\Debug\BasicApp.exe
+D:\TaalTec\BasicApp\BasicApp\bin\Debug\BasicApp.pdb
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\MainWindow.baml
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\MainWindow.g.cs
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp.g.resources
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp.Properties.Resources.resources
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.GenerateResource.cache
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.CoreCompileInputs.cache
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp.exe
+D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp.pdb
