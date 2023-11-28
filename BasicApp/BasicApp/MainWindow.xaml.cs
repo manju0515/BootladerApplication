@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using Peak.Can.Basic;
@@ -14,7 +15,7 @@ namespace WpfTransmissionApp
         {
             InitializeComponent();
             InitializeCAN();
-            //DetectCANChannels();
+            StartReceivingMessages();
         }
 
         private void InitializeCAN()
@@ -31,34 +32,58 @@ namespace WpfTransmissionApp
             else
             {
                 canStatusTextBlock.Text = "CAN cable disconnected";
-                MessageBox.Show("Error initializing CAN: " + status.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error initializing CAN: {status.ToString()}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Console.WriteLine($"Error initializing CAN: {status.ToString()}");
                 // Handle the error accordingly
             }
         }
 
-        private void DetectCANChannels()
+        private void StartReceivingMessages()
         {
-            // Assuming PCAN_USBBUS1 and PCAN_USBBUS2, adjust based on your hardware
-            TPCANHandle[] channelsToDetect = { PCANBasic.PCAN_USBBUS1, PCANBasic.PCAN_USBBUS2 };
+            // Start a background thread to listen for CAN messages
+            Thread receiveThread = new Thread(ReceiveMessages);
+            receiveThread.Start();
+        }
 
-            foreach (var channel in channelsToDetect)
+        private void ReceiveMessages()
+        {
+            TPCANMsg canMessage = new TPCANMsg();
+            TPCANTimestamp timestamp = new TPCANTimestamp();
+            TPCANStatus status;
+
+            while (true)
             {
-                TPCANBaudrate baudrate = TPCANBaudrate.PCAN_BAUD_500K;
-
-                TPCANStatus status = PCANBasic.Initialize(channel, baudrate);
+                // Read incoming CAN messages
+                status = PCANBasic.Read(selectedChannel, out canMessage, out timestamp);
 
                 if (status == TPCANStatus.PCAN_ERROR_OK)
                 {
-                    // CAN cable connected on this channel
-                    MessageBox.Show($"CAN cable detected on Channel {channel}", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    PCANBasic.Uninitialize(channel); // Uninitialize after detection
+                    // Process the received CAN message
+                    string receivedMessage = GetMessageFromCANData(canMessage);
+
+                    // Update UI with the received message
+                    Dispatcher.Invoke(() =>
+                    {
+                        receivedMessageLabel.Content = $"Received Message from Bus master : {receivedMessage}";
+                    });
+                }
+                else if (status == TPCANStatus.PCAN_ERROR_QRCVEMPTY)
+                {
+                    // No message received, continue listening
                 }
                 else
                 {
-                    // No CAN cable on this channel
-                    // Handle the error accordingly or just continue the loop
+                    // Handle other errors accordingly
+                    Console.WriteLine("Error receiving CAN message: " + status.ToString());
+                    break;
                 }
             }
+        }
+
+        private string GetMessageFromCANData(TPCANMsg canMessage)
+        {
+            // Assuming ASCII characters in the CAN message data
+            return System.Text.Encoding.ASCII.GetString(canMessage.DATA).Trim('\0');
         }
 
         private void OnSendButtonClick(object sender, RoutedEventArgs e)
@@ -72,7 +97,7 @@ namespace WpfTransmissionApp
                 // Transmit the message
                 TPCANMsg messageToSend = new TPCANMsg
                 {
-                    ID = 0x123, // Use your desired CAN message ID
+                    ID = 0x123, // Use your desired CAN message ID (e.g., 0x123)
                     MSGTYPE = TPCANMessageType.PCAN_MESSAGE_STANDARD,
                     LEN = (byte)message.Length,
                     DATA = new byte[8] // Initialize the DATA array with a fixed size (assuming a standard CAN frame)
@@ -89,7 +114,7 @@ namespace WpfTransmissionApp
                 if (transmitStatus == TPCANStatus.PCAN_ERROR_OK)
                 {
                     // Display the transmitted message and selected CAN channel in the Label.
-                    transmittedMessageLabel.Content = $"Message Transmitted on Channel {selectedChannel}: {message}";
+                    transmittedMessageLabel.Content = $"Message Transmitted from Windows application : {message}";
                 }
                 else
                 {
@@ -103,32 +128,6 @@ namespace WpfTransmissionApp
             }
         }
 
-        private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Update the selected CAN channel when the ComboBox selection changes
-            if (sender is ComboBox comboBox && comboBox.SelectedItem is ComboBoxItem selectedItem)
-            {
-                string selectedContent = selectedItem.Content.ToString();
-
-                if (selectedContent == "Channel 1")
-                {
-                    selectedChannel = PCANBasic.PCAN_USBBUS1;
-                }
-                else if (selectedContent == "Channel 2")
-                {
-                    selectedChannel = PCANBasic.PCAN_USBBUS2;
-                }
-                else
-                {
-                    throw new InvalidOperationException("Unexpected CAN channel selection.");
-                }
-
-                // Reinitialize CAN with the new selected channel
-                InitializeCAN();
-            }
-        }
-
-
         private void OnTextBoxMouseDoubleClick(object sender, RoutedEventArgs e)
         {
             // Clear the text when the TextBox is double-clicked
@@ -137,6 +136,5 @@ namespace WpfTransmissionApp
                 textBox.Text = string.Empty;
             }
         }
-
     }
 }

@@ -1,16 +1,10 @@
-D:\git\PeakDriverTest\PeakDriverTest\bin\Debug\PeakDriverTest.exe.config
-D:\git\PeakDriverTest\PeakDriverTest\bin\Debug\PeakDriverTest.exe
-D:\git\PeakDriverTest\PeakDriverTest\bin\Debug\PeakDriverTest.pdb
 D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest.csproj.AssemblyReference.cache
 D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest.csproj.SuggestedBindingRedirects.cache
+D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\MainWindow.baml
 D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\MainWindow.g.cs
 D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\App.g.cs
 D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest_MarkupCompile.cache
-D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest_MarkupCompile.lref
-D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\MainWindow.baml
 D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest.g.resources
 D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest.Properties.Resources.resources
 D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest.csproj.GenerateResource.cache
 D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest.csproj.CoreCompileInputs.cache
-D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest.exe
-D:\git\PeakDriverTest\PeakDriverTest\obj\Debug\PeakDriverTest.pdb

@@ -16,6 +16,10 @@ D:\TaalTec\BasicApp\BasicApp\obj\Debug\BasicApp.pdb
 D:\git\BasicApp\BasicApp\bin\Debug\BasicApp.exe.config
 D:\git\BasicApp\BasicApp\bin\Debug\BasicApp.exe
 D:\git\BasicApp\BasicApp\bin\Debug\BasicApp.pdb
+D:\git\BasicApp\BasicApp\bin\Debug\PCANBasic.NET.dll
+D:\git\BasicApp\BasicApp\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\git\BasicApp\BasicApp\bin\Debug\PCANBasic.NET.xml
+D:\git\BasicApp\BasicApp\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.AssemblyReference.cache
 D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.SuggestedBindingRedirects.cache
 D:\git\BasicApp\BasicApp\obj\Debug\MainWindow.baml
@@ -26,10 +30,6 @@ D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.g.resources
 D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.Properties.Resources.resources
 D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.GenerateResource.cache
 D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.CoreCompileInputs.cache
+D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.CopyComplete
 D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.exe
 D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.pdb
-D:\git\BasicApp\BasicApp\bin\Debug\PCANBasic.NET.dll
-D:\git\BasicApp\BasicApp\bin\Debug\System.Diagnostics.DiagnosticSource.dll
-D:\git\BasicApp\BasicApp\bin\Debug\PCANBasic.NET.xml
-D:\git\BasicApp\BasicApp\bin\Debug\System.Diagnostics.DiagnosticSource.xml
-D:\git\BasicApp\BasicApp\obj\Debug\BasicApp.csproj.CopyComplete
