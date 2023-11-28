@@ -4,20 +4,25 @@
         Title="CAN Controller App" Height="400" Width="600">
     <Grid>
         <StackPanel Margin="10">
+            <!-- TextBlock to display CAN cable status -->
+            <TextBlock x:Name="canStatusTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+
             <!-- ComboBox for selecting CAN channels -->
             <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Select the CAN channel" HorizontalAlignment="Center"/>
-            <!-- ComboBox for selecting CAN channels -->
             <ComboBox x:Name="canChannelsComboBox" Width="200" SelectedIndex="0" Margin="0 10 0 10">
                 <ComboBoxItem Content="CAN Channel 1"/>
                 <ComboBoxItem Content="CAN Channel 2"/>
                 <ComboBoxItem Content="CAN Channel 3"/>
                 <!-- Add more items as needed -->
             </ComboBox>
+
             <TextBlock x:Name="txtinfo" TextWrapping="Wrap" Text="Double click to enter the text" HorizontalAlignment="Center"/>
+
             <TextBox Text="Enter the message" x:Name="messageTextBox" Margin="0 10 0 15" Width="200" MouseDoubleClick="OnTextBoxMouseDoubleClick"/>
+
             <Button Content="Send" Click="OnSendButtonClick"/>
+
             <Label x:Name="transmittedMessageLabel" Content="" Margin="0 10 0 0"/>
-            
         </StackPanel>
     </Grid>
 </Window>
